@@ -1,0 +1,44 @@
+<div class="account-edit">
+	<form class="form-horizontal" role="form">
+		<div class="form-group" ng-repeat="item in editData.label">
+			<label class="control-label col-sm-3" for="{{item.labelFor}}">{{item.labelName}}</label>
+			<div class="col-sm-9">
+				<input ng-if="item.type=='text'" 
+						class='form-control' 
+						type='{{item.type}}' 
+						id='{{item.labelFor}}' 
+						name='{{item.labelFor}}' 
+						ng-model='item.inputModel' 
+				/>
+				<input ng-if="item.type=='password'" 
+						class='form-control' 
+						type='{{item.type}}' 
+						id='{{item.labelFor}}' 
+						name='{{item.labelFor}}' 
+						ng-model='item.inputModel'
+						placeholder="点击修改密码,默认密码不修改"
+				/>
+				<select ng-if="item.type=='select'" 
+						class='form-control' 
+						id='{{item.labelFor}}' 
+						name='{{item.labelFor}}' 
+						ng-model='item.inputModel' 
+						ng-options="a.value as a.name for a in editData.selectOptions"
+				>
+					<option value="">请选择门店</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group text-right">
+			<div class="col-sm-5 col-sm-offset-5">
+				<sure 
+					data="editData.label" 
+					tip="dangerTip"
+					url-data="urls"
+				>
+				</sure>
+			</div>
+		</div>
+	</form>
+</div>

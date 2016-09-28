@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="BGJZ_App">
+	<head>
+		<meta charset="UTF-8">
+		<title>佰工家政培训基地在线教学管理系统-后台首页</title>
+		<script src="../dist/js/jquery-1.12.1.min.js"></script>
+		<script src="../dist/js/angular.min.js"></script>
+		<script src="../dist/js/angular-ui-router.min.js"></script>
+		<script src="../dist/js/angular-cookie.min.js"></script>
+		<script src="../dist/js/app.min.js"></script>
+		<script src="../dist/js/ng-config.min.js"></script>
+		<script src="../dist/js/controller.min.js"></script>
+		<script src="../dist/js/directive.min.js"></script>
+		<script src="../dist/js/laydate/laydate.js"></script>
+		<script src="../dist/js/ckplayer/ckplayer.js"></script>
+		<link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../dist/css/common.min.css"/>
+	</head>
+	<body>
+		<div class="container-fluid bg-layout" ng-controller="adminCtrl">
+			<div class="header">
+				<h1 class="text-center">
+					<a ui-sref="index">佰工家政培训基地在线教学管理系统</a>
+				</h1>
+			</div>
+			<div class="user-info">
+				<div class="row">
+					<div class="col-sm-4">
+						操作门店：{{adminData.storename}}
+					</div>
+					<div class="col-sm-4 text-center">
+						操作人：{{adminData.name}}({{adminData.username}})
+					</div>
+					<div class="col-sm-4">
+						<a href="" class="text-danger pull-right" style="margin-left: 15px;" ng-click="loginOut()">退出登录</a>
+						<a href="#" class="pull-right">修改密码</a>
+					</div>
+				</div>
+			</div>
+			<div ui-view>
+			</div>
+			<div ng-include="'../footer.html'"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<div class="list">
+	<div class="course">
+		<table class="table table-condensed table-bordered table-striped text-center">
+			<div class="page-header">
+			   <h1 class="text-center">{{tableData.title}}</h1>
+			</div>
+			<thead>
+				<tr>
+					<th ng-repeat="item in tableData.theader" class="text-center">{{item}}</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr ng-repeat="item in tableData.tbody">
+					<td>{{item.name}}</td>
+					<td>{{item.price}}</td>
+					<td>{{item.classhourday}}</td>
+					<td>{{item.capcity}}</td>
+					<td>{{item.start*1000 | date : 'yyyy-MM-dd'}}</td>
+					<td>{{item.position}}</td>
+					<td>{{item.level}}</td>
+					<td>{{item.rule}}</td>
+					<td>{{item.list}}</td>
+					<td>{{item.testTime*1000 | date : 'yyyy-MM-dd'}}</td>
+					<td>{{item.deadline*1000 | date : 'yyyy-MM-dd'}}</td>
+					<td>
+						<a href="#/list/course/{{item.id}}" class='btn btn-success'>编辑</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="text-right">
+			<a href="#/list/course/0" class="btn btn-info" >添加</a>
+		</div>
+		<div class="text-center">
+			<page-bar 
+				data="data"
+				refresh="refresh()"
+				count="count"
+			>
+				
+			</page-bar>
+		</div>
+	</div>
+</div>

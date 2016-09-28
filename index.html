@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="indexLoginApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>佰工家政培训基地在线教学管理系统--首页</title>
+		<script src="dist/js/angular.min.js"></script>
+		<script src="dist/js/angular-cookie.min.js"></script>
+		<script src="dist/js/login.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="dist/css/common.min.css"/>
+	</head>
+	<body>
+		<div class="container-fluid bg-layout" ng-controller="loginCtrl">
+			<div class="header">
+				<h1 class="text-center">
+					<a href="index.html">佰工家政培训基地在线教学管理系统</a>
+				</h1>
+			</div>
+			<div class="login-bar">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						登录
+					</div>
+					<div class="panel-body">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label for="account" class="col-sm-2 control-label">账&nbsp;号</label>
+								<div class="col-sm-9">
+									<input type="text" id="account" class="form-control" ng-model="login.account" placeholder="请输入手机号" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-sm-2 control-label">密&nbsp;码</label>
+								<div class="col-sm-9">
+									<input type="text" id="password" class="form-control" ng-model="login.pwd" placeholder="请输入密码" />
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<div class="col-sm-12">
+									<button class="btn btn-primary center-block" ng-click="loginSubmit()">确认登录</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-include="'footer.html'"></div>
+		</div>
+	</body>
+</html>

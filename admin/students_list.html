@@ -1,0 +1,28 @@
+<div class="admin-header clearfix">
+	<h4 class="pull-left">学员报名列表</h4>
+	<a href="" ui-sref="apply" class="btn btn-primary pull-right">学员在线报名</a>
+</div>
+<div class="list-layout">
+	<table border="0" cellspacing="0" cellpadding="0" class="table table-striped">
+		<thead>
+			<tr>
+				<th ng-repeat="title in studentsListTit" class="text-center">
+					{{title}}
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="d in studentsListData" class="text-center">
+				<td>{{d.coursesid}}</td>
+				<td>{{d.name}}</td>
+				<td>{{d.cardID}}</td>
+				<td>{{d.tel}}</td>
+				<td>{{d.course}}</td>
+				<td>{{d.start | date:'yyyy-MM-dd'}}</td>
+				<td>{{d.deadline|date:'yyyy-MM-dd'}}</td>
+				<td>{{d.state}}</td>
+				<td><a href="#" ui-sref="edit">编辑</a>&nbsp;|&nbsp;<a href="#" ui-sref="print_apply">打印</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

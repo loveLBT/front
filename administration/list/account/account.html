@@ -1,0 +1,51 @@
+<div class="list">
+	<div class="account">
+		<table class="table table-condensed table-bordered table-striped text-center">
+			<div class="page-header">
+			   <h1 class="text-center">{{tableData.title}}</h1>
+			</div>
+			<thead>
+				<tr>
+					<th ng-repeat="item in tableData.theader" class="text-center">{{item}}</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr ng-repeat="item in tableData.tbody">
+					<td>{{item.username}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.stores}}</td>
+					<td>{{item.position}}</td>
+					<td>{{item.state | state}}</td>
+					<td>
+						<a href="#/list/account/{{item.id}}" class='btn btn-success'>编辑</a>
+						<disable 
+							state-btn1="禁用状态" 
+							state-btn2="启用状态" 
+							refresh="refresh()" 
+							state={{item.state}} 
+							url1="/admin/users/{{item.id}}/lock" 
+							url2="/admin/users/{{item.id}}/lock" 
+							setting1={method:"put",data:""} 
+							setting2={method:"delete",data:""}
+						>
+							
+						</disable>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="text-right">
+			<a href="#/list/account/0" class="btn btn-info">添加账号</a>
+		</div>
+		<div class="text-center">
+			<page-bar 
+				data="data"
+				refresh="refresh()"
+				count="count"
+			>
+				
+			</page-bar>
+		</div>
+	</div>
+</div>

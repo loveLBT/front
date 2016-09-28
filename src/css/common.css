@@ -1,0 +1,36 @@
+body {font-family: "microsoft yahei";}
+/*common*/
+ul,li {list-style: none; margin: 0; padding: 0;}
+.cbbb {color: #999999;}
+.laydate_box,.laydate_box *{box-sizing: content-box; -webkit-box-sizing: content-box;}
+
+.header a:hover { text-decoration: none;}
+.bg-layout {width: 1180px; margin: 0 auto;}
+.bg-layout .login-bar {width: 500px; margin: 150px auto 0;}
+.copyright {margin: 100px 0; text-align: center;}
+.user-info {margin-top: 30px; line-height: 40px; border-bottom: 1px solid #ddd;}
+.select-columns {padding: 100px 0 0;}
+.select-columns .row {margin-top: 30px;}
+.admin-header {margin: 20px 0;}
+.must-icon {color: red; font-weight: bold; vertical-align: -8px; margin-left: -20px;}
+
+.apply-table .cbbb {line-height: 34px;}
+.info-title {margin: 50px 0 20px; border-radius: 5px; padding: 10px; color: #2B542C;}
+
+.print-table {width: 800px; margin: 0 auto; border: 3px solid #000000; padding: 2px; font-size: 12px;}
+.print-table th {width: 100px; text-align: center; font-weight: normal; padding: 5px 0;}
+.print-table td {padding: 5px 0;} 
+.print-table .photo {width: 120px;}
+
+.checkboxUI {padding-left: 10px;}
+.checkboxUI li {margin-right: 12px; float: left;}
+.checkboxUI label {display: inline; vertical-align: middle; font-weight: normal; margin-right: 3px;}
+.checkboxUI .square {display: inline-block; width: 10px; height: 10px; border: 1px solid #000000; vertical-align: middle;}
+
+.course-tabs {margin: 20px 0;}
+.form-laydate[readonly] {background: #fff; cursor: pointer;}
+/*.media-box {position: absolute; top: 50%; left: 50%;  z-index: 99;}*/
+.media-mask {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000000; opacity: 0.7; filter: alpha(opacity=70);}
+.alert {margin: 10px 0;}
+
+

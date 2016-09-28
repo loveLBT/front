@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>后台登入系统</title>
+		<script src="../dist/js/jquery-1.12.1.min.js"></script>
+		<script src="../dist/js/laydate/laydate.js"></script>
+		<script src="../dist/js/jquery.bootpag.min.js"></script>
+		<script src="../dist/js/angular.min.js"></script>
+		<script src="../dist/js/angular-ui-router.min.js"></script>
+		<script src="../dist/js/angular-animate.min.js"></script>
+		<script src="../dist/js/app.min.js"></script>
+		<script src="../dist/js/ng-config.min.js"></script>
+		<script src="../dist/js/controller.min.js"></script>
+		<script src="../dist/js/directive.min.js"></script>
+		<script src="../dist/js/services.min.js"></script>
+		<script src="../dist/js/filters.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../dist/css/administration.min.css"/>
+	</head>
+	<body>
+		<alert-bar class="alert_bar" message="tipService.message" type="tipService.type" state="tipService.state"></alert-bar>
+		<loading-bar ng-if="loadingService.state"></loading-bar>
+		<div ui-view>
+			
+		</div>
+	</body>
+</html>

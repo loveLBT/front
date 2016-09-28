@@ -1,0 +1,42 @@
+<div class="course-edit">
+	<form class="form-horizontal" role="form">
+		<div class="form-group" ng-repeat="item in editData.label">
+			<label class="control-label col-sm-3" for="{{item.labelFor}}">{{item.labelName}}</label>
+			<div class="col-sm-9">
+				<input
+					ng-if="item.filter=='textfilter'"
+					class='form-control' 
+					type='{{item.type}}' 
+					id='{{item.labelFor}}' 
+					name='{{item.labelFor}}' 
+					ng-model="item.inputModel"  
+				/>
+				<fileread 
+					ng-if="item.filter=='filefilter'"
+					model="item.inputModel"
+				>
+				</fileread>
+				<input
+					ng-if="item.filter=='datefilter'"
+					date="item.inputModel"
+					class='form-control' 
+					type='{{item.type}}' 
+					id='{{item.labelFor}}' 
+					name='{{item.labelFor}}' 
+					ng-model="item.inputModel"
+					readonly
+				/>
+			</div>
+		</div>
+		
+		<div class="form-group text-right">
+			<div class="col-sm-5 col-sm-offset-5">
+				<sure
+					data="editData.label" 
+					url-data="urls"
+				>
+				</sure>
+			</div>
+		</div>
+	</form>
+</div>

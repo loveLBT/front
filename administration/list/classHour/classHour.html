@@ -1,0 +1,43 @@
+<div class="list">
+	<div class="store">
+		<table class="table table-condensed table-bordered table-striped text-center">
+			<div class="page-header">
+			   <h1 class="text-center">{{tableData.title}}</h1>
+			</div>
+			<thead>
+				<tr>
+					<th ng-repeat="item in tableData.theader" class="text-center">{{item}}</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr ng-repeat="item in tableData.tbody">
+					<td>{{item.courseID}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.number}}</td>
+					<td>{{item.video}}</td>
+					<td>{{item.data}}</td>
+					<td>
+						<a href="#/list/classHour/{{item.id}}" class='btn btn-success'>编辑</a>
+						<a ng-click='sordUp(item.sort)' class='btn btn-info'>上移</a>
+						<a ng-click='sortDown(item.sort)' class='btn btn-primary'>下移</a>
+						<a ng-click='delete(item.id)' class='btn btn-danger'>删除</a>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+		<div class="text-right">
+			<a href="#/list/classHour/0" class="btn btn-info" >添加课时</a>
+		</div>
+		<div class="text-center">
+			<page-bar 
+				data="data"
+				refresh="refresh()"
+				count="count"
+			>
+				
+			</page-bar>
+		</div>
+	</div>
+</div>

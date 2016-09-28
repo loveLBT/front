@@ -1,0 +1,20 @@
+<div class="course-tabs">
+	<table border="0" cellspacing="0" cellpadding="0" class="table table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">课程编号</th>
+				<th class="text-center">课程</th>
+				<th class="text-center">课时数</th>
+				<th class="text-center">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="text-center" ng-repeat="sData in studentData">
+				<td>{{sData.id}}</td>
+				<td>{{sData.name}}</td>
+				<td>{{sData.cot}}</td>
+				<td><a href="#" ui-sref="learning({id:1})">进入学习</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

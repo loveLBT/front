@@ -1,0 +1,13 @@
+<div class="nav">
+	<div class="nav_fl">
+		<ul >
+			<li ng-repeat="item in navItem">
+				<a ui-sref-active="active" ui-sref="{{item.link}}">{{item.name}}<span></span></a>
+			</li>
+		</ul>
+	</div>
+	<div class="nav_fr">
+		<a>管理员</a>
+		<loginout></loginout>
+	</div>
+</div>

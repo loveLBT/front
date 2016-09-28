@@ -1,0 +1,226 @@
+<div class="container-fluid">
+	<div class="admin-header clearfix">
+		<a href="" ui-sref="openlist" class="btn btn-primary pull-right">查看开班信息</a>
+	</div>
+	<div class="apply-table">
+		<h4 class="text-primary text-center">学员在线报名登记</h4>
+		<div class="form-horizontal">
+			<form novalidate="novalidate" name="applyForm">
+				<div class="form-group">
+					<label for="name" class="col-sm-2 col-sm-offset-2 control-label">姓名</label>
+					<div class="col-sm-5">
+						<input type="text" id="name" name="name" class="form-control" ng-model="classhour.name" placeholder="请输入姓名" required />
+						<div class="alert alert-danger" ng-if="applyForm.name.$dirty && applyForm.name.$error.required">姓名不能为空</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="card" class="col-sm-2 col-sm-offset-2 control-label">身份证号</label>
+					<div class="col-sm-5">
+						<input type="text" id="card" name="card" class="form-control" ng-model="classhour.cardID" ng-change="card_test(classhour.cardID , applyForm.card.$error)" placeholder="请输入身份证" maxlength="18" required ng-minlength="15" />
+						<div class="alert alert-danger" ng-if="applyForm.card.$dirty && applyForm.card.$error.required">身份证号不能为空</div>
+						<div class="alert alert-danger" ng-if="applyForm.card.$dirty && applyForm.card.$error.minlength">身份证号不能小于15位数</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="sex" class="col-sm-2 col-sm-offset-2 control-label">性别</label>
+					<div class="col-sm-2">
+						<input type="text" id="sex" class="form-control" readonly="readonly" ng-value="sexVal" ng-model="classhour.sex" />
+					</div>
+					<label for="birthDate" class="col-sm-1 control-label">出生年月</label>
+					<div class="col-sm-2">
+						<input type="text" id="birthDate" class="form-control" readonly="readonly" ng-value="birthDateVal" ng-model="classhour.birthday" />
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="degree" class="col-sm-2 col-sm-offset-2 control-label">文化程度</label>
+					<div class="col-sm-5">
+						<select name="culture" id="degree" class="form-control" ng-model="applyData.degree" required>
+							<option value="">请选择文化程度</option>
+							<option value="文盲或半文盲">文盲或半文盲</option>
+							<option value="小学">小学</option>
+							<option value="初中">初中</option>
+							<option value="职高">职高</option>
+							<option value="高中">高中</option>
+							<option value="高技">高技</option>
+							<option value="中专中技">中专中技</option>
+							<option value="专科">专科</option>
+							<option value="大学本科">大学本科</option>
+							<option value="硕士">硕士</option>
+							<option value="博士">博士</option>
+							<option value="其他">其他</option>
+						</select>
+						<div class="alert alert-danger" ng-if="applyForm.degree.$dirty && applyForm.degree.$error.required">文化程度不能为空</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="household" class="col-sm-2 col-sm-offset-2 control-label">户籍所在地</label>
+					<div class="col-sm-5">
+						<input type="text" id="household" name="household" class="form-control " placeholder="请输入户籍所在地" ng-model="classhour.household" required />
+						<div class="alert alert-danger" ng-if="applyForm.household.$dirty && applyForm.household.$error.required">户籍所在地不能为空</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="nodetype" class="col-sm-2 col-sm-offset-2 control-label">户口性质</label>
+					<div class="col-sm-5">
+						<select class="form-control" name="nodetype" ng-model="classhour.nodetype" id="nodetype" required>
+							<option value="" ng-selected="selected">请选择户口性质</option>
+							<option value="本市城镇">本市城镇</option>
+							<option value="本市农村">本市农村</option>
+							<option value="非本市城镇">非本市城镇</option>
+							<option value="非本市农村">非本市农村</option>
+							<option value="台港澳人员">台港澳人员</option>
+							<option value="外籍人员">外籍人员</option>
+						</select>
+						<div class="alert alert-danger" ng-if="applyForm.nodetype.$dirty && applyForm.nodetype.$error.required">户口性质不能为空</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="cardaddress" class="col-sm-2 col-sm-offset-2 control-label">身份证地址</label>
+					<div class="col-sm-5">
+						<input type="text" id="cardaddress" name="cardaddress" class="form-control " placeholder="请输入身份证地址" ng-model="classhour.cardaddress" required />
+						<div class="alert alert-danger" ng-if="applyForm.cardaddress.$dirty && applyForm.cardaddress.$error.required">身份证地址不能为空</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="address" class="col-sm-2 col-sm-offset-2 control-label">通讯地址</label>
+					<div class="col-sm-5">
+						<input type="text" id="address" class="form-control " ng-model="classhour.address" placeholder="请输入通讯地址" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="phone" class="col-sm-2 col-sm-offset-2 control-label">手机号码</label>
+					<div class="col-sm-5">
+						<input type="text" id="phone" name="phone" class="form-control " ng-model="classhour.tel" placeholder="请输入手机号码" required />
+						<div class="alert alert-danger" ng-if="applyForm.phone.$dirty && applyForm.phone.$error.required">手机号码不能为空</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="tel" class="col-sm-2 col-sm-offset-2 control-label">联系电话(备用)</label>
+					<div class="col-sm-5">
+						<input type="text" id="tel" class="form-control " ng-model="classhour.secondtel" placeholder="请输入联系电话" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="nowlevel" class="col-sm-2 col-sm-offset-2 control-label">现等级职业</label>
+					<div class="col-sm-5">
+						<select class="form-control" id="nowlevel" ng-model="classhour.nowlevel">
+							<option value="">请选择</option>
+					        <option value="无等级">无等级</option>
+					        <option value="五级">五级</option>
+					        <option value="四级">四级</option>
+					        <option value="三级">三级</option>
+					        <option value="二级">二级</option>
+					        <option value="一级">一级</option>
+				        </select>
+					</div>
+					<div class="col-sm-2"><span class="cbbb">须提供证书复印件</span></div>
+				</div>
+				<div class="form-group">
+					<label for="nowposition" class="col-sm-2 col-sm-offset-2 control-label">现职称</label>
+					<div class="col-sm-5">
+						<select id="nowposition" ng-model="classhour.nowposition" class="form-control">
+				          <option value="">未填写</option>
+				          <option value="初级职称">初级职称</option>
+				          <option value="中级职称">中级职称</option>
+				          <option value="高级职称">高级职称</option>
+				        </select>
+					</div>
+					<div class="col-sm-2"><span class="cbbb">须提供证书复印件</span></div>
+				</div>
+				<div class="form-group">
+					<label for="apply_zy" class="col-sm-2 col-sm-offset-2 control-label">申报职业</label>
+					<div class="col-sm-5">
+						<select id="apply_zy" name="apply_zy" ng-model="applyData.apply_zy" class="form-control" required>
+				          <option value="">未填写</option>
+				          <option value="母婴护理专项">母婴护理专项</option>
+				          <option value="初级家政服务员">初级家政服务员</option>
+				        </select>
+				        <div class="alert alert-danger" ng-if="applyForm.apply_zy.$dirty && applyForm.apply_zy.$error.required">请选择申报职业</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="apply_jb" class="col-sm-2 col-sm-offset-2 control-label">申报级别</label>
+					<div class="col-sm-5">
+						<select id="apply_jb" ng-model="applyData.apply_jb" class="form-control">
+				          <option value="">未填写</option>
+				          <option value="五级">五级</option>
+				          <option value="四级">四级</option>
+				          <option value="三级">三级</option>
+				          <option value="二级">二级</option>
+				          <option value="一级">一级</option>
+				        </select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="testtype" class="col-sm-2 col-sm-offset-2 control-label">考试类型</label>
+					<div class="col-sm-5">
+						<div class="col-sm-4">
+							<label class="radio-inline">
+					    		<input type="radio" ng-value="'新考'" ng-model="classhour.testtype" required>新考
+							</label>
+							<label class="radio-inline">
+					    		<input type="radio" ng-value="'补考'" ng-model="classhour.testtype" required>补考
+							</label>
+						</div>
+						<div class="col-sm-1"><span class="must-icon">*</span></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="testsubject" class="col-sm-2 col-sm-offset-2 control-label">考核科目</label>
+					<div class="col-sm-5">
+						<label class="checkbox-inline">
+						    	<input type="checkbox" value="理论" ng-model="classhour.testsubject.lilun">理论
+							</label>
+						<label class="checkbox-inline">
+						    	<input type="checkbox" value="技能" ng-model="classhour.testsubject.jineng">技能
+							</label>
+						<label class="checkbox-inline">
+						    	<input type="checkbox" value="综合审评" ng-model="classhour.testsubject.zonghe">综合审评
+							</label>
+						<label class="checkbox-inline">
+						    	<input type="checkbox" value="外语" ng-model="classhour.testsubject.waiyu">外语
+							</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="times" class="col-sm-2 col-sm-offset-2 control-label">报到时间</label>
+					<div class="col-sm-5">
+						<my-laydate my-name="times" my-time="classhour.checkDate" my-form="applyForm.times"></my-laydate>
+						<div class="alert alert-danger" ng-if="applyForm.times.$dirty && applyForm.times.$error.required">请选择报考时间</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="checkin_time" class="col-sm-2 col-sm-offset-2 control-label">考试时间</label>
+					<div class="col-sm-5">
+						<select id="checkin_time" name="checkin_time" class="form-control" ng-model="classhour.checkin_time" required>
+				          <option value="">暂未确定</option>
+				          <option value="2016-5-29">2016-5-29</option>
+				          <option value="2016-6-29">2016-6-29</option>
+				        </select>
+				        <div class="alert alert-danger" ng-if="applyForm.checkin_time.$dirty && applyForm.checkin_time.$error.required">请选择考试时间</div>
+					</div>
+					<div class="col-sm-1"><span class="must-icon">*</span></div>
+				</div>
+				<div class="form-group">
+					<label for="recommended" class="col-sm-2 col-sm-offset-2 control-label">推荐人</label>
+					<div class="col-sm-5">
+						<input type="text" id="recommended" ng-model="classhour.recommended" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary center-block" ng-click="applySubmit(applyForm)">确认提交</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
